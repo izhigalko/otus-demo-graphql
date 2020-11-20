@@ -1,0 +1,98 @@
+[
+  {
+    "model": "books.author",
+    "pk": 1,
+    "fields": {
+      "name": "Ursula Kroeber Le Guin",
+      "birthday": "1929-10-21"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 1,
+    "fields": {
+      "title": "A Wizard of Earthsea",
+      "author": 1,
+      "publish_year": 1968,
+      "description": "Ged was the greatest sorcerer in Earthsea, but in his youth he was the reckless Sparrowhawk. In his hunger for power and knowledge, he tampered with long-held secrets and loosed a terrible shadow upon the world. This is the tumultuous tale of his testing, how he mastered the mighty words of power, tamed an ancient dragon, and crossed death's threshold to restore the balance."
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 2,
+    "fields": {
+      "title": "The Tombs of Atuan",
+      "author": 1,
+      "publish_year": 1970,
+      "description": "In this second novel in the Earthsea series, Tenar is chosen as high priestess to the ancient and nameless Powers of the Earth, and everything is taken from her—home, family, possessions, even her name. She is now known only as Arha, the Eaten One, and guards the shadowy, labyrinthine Tombs of Atuan."
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+      "title": "The Farthest Shore",
+      "author": 1,
+      "publish_year": 1972,
+      "description": "In this third book in the Earthsea series, darkness threatens to overtake Earthsea: The world and its wizards are losing their magic. But Ged Sparrowhawk—Archmage, wizard, and dragonlord—is determined to discover the source of this devastating loss."
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+      "title": "Tehanu",
+      "author": 1,
+      "publish_year": 1991,
+      "description": "In this fourth novel in the Earthsea series, we rejoin the young priestess the Tenar and powerful wizard Ged. Years before, they had helped each other at a time of darkness and danger. Together, they shared an adventure like no other. Tenar has since embraced the simple pleasures of an ordinary life, while Ged mourns the powers lost to him through no choice of his own."
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+      "title": "Tales from Earthsea",
+      "author": 1,
+      "publish_year": 2001,
+      "description": "The tales of this book explore and extend the world established by the Earthsea novels--yet each stands on its own. It contains the novella \"The Finder,\" and the short stories \"The Bones of the Earth,\" \"Darkrose and Diamond,\" \"On the High Marsh,\"and \"Dragonfly.\" Concluding with with an account of Earthsea's history, people, languages, literature, and magic, this collection also features two new maps of Earthsea."
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 6,
+    "fields": {
+      "title": "The Other Wind",
+      "author": 1,
+      "publish_year": 2001,
+      "description": "The sorcerer Alder fears sleep. He dreams of the land of death, of his wife who died young and longs to return to him so much that she kissed him across the low stone wall that separates our world from the Dry Land-where the grass is withered, the stars never move, and lovers pass without knowing each other. The dead are pulling Alder to them at night. Through him they may free themselves and invade Earthsea."
+    }
+  },
+  {
+    "model": "books.author",
+    "pk": 2,
+    "fields": {
+      "name": "Patrick Rothfuss",
+      "birthday": "1973-06-06"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 7,
+    "fields": {
+      "title": "The Name of the Wind",
+      "author": 2,
+      "publish_year": 2007,
+      "description": "My name is Kvothe, pronounced nearly the same as \"quothe.\" Names are important as they tell you a great deal about a person. I've had more names than anyone has a right to. The Adem call me Maedre. Which, depending on how it's spoken, can mean The Flame, The Thunder, or The Broken Tree."
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 8,
+    "fields": {
+      "title": "The Wise Man's Fear",
+      "author": 2,
+      "publish_year": 2011,
+      "description": "In The Wise Man's Fear, Kvothe searches for answers, attempting to uncover the truth about the mysterious Amyr, the Chandrian, and the death of his parents. Along the way, Kvothe is put on trial by the legendary Adem mercenaries, forced to reclaim the honor of his family, and travels into the Fae realm. There he meets Felurian, the faerie woman no man can resist, and who no man has ever survived...until Kvothe."
+    }
+  }
+]

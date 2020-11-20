@@ -1,0 +1,33 @@
+schema {
+  query: Query
+}
+
+type AuthorNPlus1Type {
+  id: ID!
+  name: String!
+  birthday: Date!
+  books: [BookType!]!
+}
+
+type AuthorType {
+  id: ID!
+  name: String!
+  birthday: Date!
+  books: [BookType!]!
+}
+
+type BookType {
+  id: ID!
+  title: String!
+  description: String!
+  author: AuthorNPlus1Type!
+}
+
+scalar Date
+
+type Query {
+  books(limit: Int): [BookType]
+  author(id: ID!): AuthorType
+  selectNPlus1(authorIds: [ID]!): [AuthorType]
+  resolvedNPlus1(authorIds: [ID]!): [AuthorNPlus1Type]
+}

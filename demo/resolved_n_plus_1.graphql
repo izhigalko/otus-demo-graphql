@@ -1,0 +1,8 @@
+query GetAuthors {
+    resolvedNPlus1(authorIds: [1, 2]) {
+        name,
+        books {
+            title
+        }
+    }
+}

@@ -1,0 +1,5 @@
+query GetBook {
+    books(limit: 1) {
+        id
+    }
+}
