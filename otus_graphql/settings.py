@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
+    'django_grpc',
     'otus_graphql.books'
 ]
 
@@ -123,6 +124,12 @@ STATIC_URL = '/static/'
 
 GRAPHENE = {
     "SCHEMA": "otus_graphql.schema.schema"
+}
+
+GRPCSERVER = {
+    'servicers': ['otus_graphql.grpc.grpc_hook'],
+    'interceptors': [],
+    'maximum_concurrent_rpcs': None,
 }
 
 LOGGING = {

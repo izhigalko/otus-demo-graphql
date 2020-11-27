@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+service BooksService {
+  rpc GetAuthor(ByIdRequest) returns (Author);
+  rpc GetBook(ByIdRequest) returns (Book);
+}
+
+message ByIdRequest {
+  uint32 id = 1;
+}
+
+message Author {
+  string name = 1;
+  google.protobuf.Timestamp birthday = 2;
+}
+
+message Book {
+  string title = 1;
+  string description = 2;
+  Author author = 3;
+}

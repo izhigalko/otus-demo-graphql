@@ -1,6 +1,6 @@
-# Демо-проект к занятию по теме Graphql
+# Демо-проект к занятию по теме Graphql и gRPC
 
-## Запуск проекта
+## Подготовка проекта
 
 Установить зависимости:
 
@@ -20,7 +20,9 @@ python manage.py migrate
 python manage.py loaddata books
 ```
 
-Запустить сервис
+## Запуск GraphQL
+
+Запустить сервис:
 
 ```shell script
 python manage.py runserver
@@ -29,10 +31,26 @@ python manage.py runserver
 После запуска сервиса GraphQL интерфейс будет доступен
 по [ссылке](http://127.0.0.1:8000/graphql)
 
-## Генерация схемы
+### Генерация схемы
 
 Сгенерировать GraphQL схему:
 
 ```shell script
 make schema
+```
+
+## Запуск gRPC
+
+Запустить сервис:
+
+```shell script
+python manage.py grpcserver
+```
+
+### Генерация кода из схемы
+
+Сгенерировать код:
+
+```shell script
+make otus_graphql/books_pb2_grpc.py
 ```
