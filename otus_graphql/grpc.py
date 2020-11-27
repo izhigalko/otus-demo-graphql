@@ -18,11 +18,8 @@ class BooksService(BooksServiceServicer):
         birthday.FromDatetime(datetime.combine(author.birthday, datetime.min.time()))
         return Author(name=author.name, birthday=birthday)
 
-    def GetAuthor(self, request, context):
-        author = models.Author.objects.get(pk=request.id)
-        return self.to_protobuf_author(author)
-
-    def GetBook(self, request, context):
-        book = models.Book.objects.select_related('author').get(pk=request.id)
-        author = self.to_protobuf_author(book.author)
-        return Book(title=book.title, description=book.description, author=author)
+    def GetBooks(self, request, context):
+        books = models.Book.objects.select_related('author').all()
+        for book in books:
+            author = self.to_protobuf_author(book.author)
+            yield Book(title=book.title, description=book.description, author=author)

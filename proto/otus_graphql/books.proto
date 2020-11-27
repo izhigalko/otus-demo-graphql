@@ -3,12 +3,10 @@ syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 
 service BooksService {
-  rpc GetAuthor(ByIdRequest) returns (Author);
-  rpc GetBook(ByIdRequest) returns (Book);
+  rpc GetBooks(Empty) returns (stream Book);
 }
 
-message ByIdRequest {
-  uint32 id = 1;
+message Empty {
 }
 
 message Author {

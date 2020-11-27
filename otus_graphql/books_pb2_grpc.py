@@ -14,14 +14,9 @@ class BooksServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.GetAuthor = channel.unary_unary(
-                '/BooksService/GetAuthor',
-                request_serializer=otus__graphql_dot_books__pb2.ByIdRequest.SerializeToString,
-                response_deserializer=otus__graphql_dot_books__pb2.Author.FromString,
-                )
-        self.GetBook = channel.unary_unary(
-                '/BooksService/GetBook',
-                request_serializer=otus__graphql_dot_books__pb2.ByIdRequest.SerializeToString,
+        self.GetBooks = channel.unary_stream(
+                '/BooksService/GetBooks',
+                request_serializer=otus__graphql_dot_books__pb2.Empty.SerializeToString,
                 response_deserializer=otus__graphql_dot_books__pb2.Book.FromString,
                 )
 
@@ -29,13 +24,7 @@ class BooksServiceStub(object):
 class BooksServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def GetAuthor(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetBook(self, request, context):
+    def GetBooks(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -44,14 +33,9 @@ class BooksServiceServicer(object):
 
 def add_BooksServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'GetAuthor': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetAuthor,
-                    request_deserializer=otus__graphql_dot_books__pb2.ByIdRequest.FromString,
-                    response_serializer=otus__graphql_dot_books__pb2.Author.SerializeToString,
-            ),
-            'GetBook': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetBook,
-                    request_deserializer=otus__graphql_dot_books__pb2.ByIdRequest.FromString,
+            'GetBooks': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetBooks,
+                    request_deserializer=otus__graphql_dot_books__pb2.Empty.FromString,
                     response_serializer=otus__graphql_dot_books__pb2.Book.SerializeToString,
             ),
     }
@@ -65,7 +49,7 @@ class BooksService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def GetAuthor(request,
+    def GetBooks(request,
             target,
             options=(),
             channel_credentials=None,
@@ -75,25 +59,8 @@ class BooksService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/BooksService/GetAuthor',
-            otus__graphql_dot_books__pb2.ByIdRequest.SerializeToString,
-            otus__graphql_dot_books__pb2.Author.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetBook(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/BooksService/GetBook',
-            otus__graphql_dot_books__pb2.ByIdRequest.SerializeToString,
+        return grpc.experimental.unary_stream(request, target, '/BooksService/GetBooks',
+            otus__graphql_dot_books__pb2.Empty.SerializeToString,
             otus__graphql_dot_books__pb2.Book.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
