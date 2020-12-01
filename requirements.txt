@@ -3,3 +3,4 @@ graphene-django
 graphene~=2.1.8
 grpcio-tools
 django-grpc
+grpcio-reflection

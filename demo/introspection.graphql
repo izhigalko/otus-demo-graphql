@@ -1,0 +1,7 @@
+query GetTypes {
+    __schema {
+        types {
+            name
+        }
+    }
+}
