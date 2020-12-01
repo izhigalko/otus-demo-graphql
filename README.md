@@ -54,3 +54,19 @@ python manage.py grpcserver
 ```shell script
 make otus_graphql/books_pb2_grpc.py
 ```
+
+## Запуск front-end
+
+Собираем и запускаем Envoy:
+
+```shell script
+docker-compose  -f front/docker-compose.yaml up -d
+```
+
+Собираем front:
+
+```shell script
+make front/dist
+```
+
+Открыть [страницу](front/index.html)
