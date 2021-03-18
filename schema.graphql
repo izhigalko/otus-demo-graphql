@@ -1,5 +1,6 @@
 schema {
   query: Query
+  mutation: Mutations
 }
 
 type AuthorNPlus1Type {
@@ -23,7 +24,15 @@ type BookType {
   author: AuthorNPlus1Type!
 }
 
+type CreateAuthor {
+  author: AuthorType
+}
+
 scalar Date
+
+type Mutations {
+  createAuthor(name: String): CreateAuthor
+}
 
 type Query {
   books(limit: Int): [BookType]

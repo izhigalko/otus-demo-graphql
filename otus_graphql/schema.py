@@ -1,4 +1,5 @@
 import graphene
+import datetime
 from graphene_django import DjangoObjectType
 from .loaders import author_books_data_loader
 
@@ -56,4 +57,20 @@ class Query(graphene.ObjectType):
         return Author.objects.filter(pk__in=author_ids).all()
 
 
-schema = graphene.Schema(query=Query)
+class CreateAuthor(graphene.Mutation):
+    class Arguments:
+        name = graphene.String()
+
+    author = graphene.Field(AuthorType)
+
+    def mutate(root, info, name):
+        author = Author(name=name, birthday=datetime.date.today())
+        author.save()
+        return CreateAuthor(author=author)
+
+
+class Mutations(graphene.ObjectType):
+    create_author = CreateAuthor.Field()
+
+
+schema = graphene.Schema(query=Query, mutation=Mutations)
