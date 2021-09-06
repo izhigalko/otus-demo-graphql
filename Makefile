@@ -22,6 +22,10 @@ get_schema:
 get_books_req:
 	grpc_cli call localhost:50051 GetBooks ""
 
+.PHONY=create_author
+create_author:
+	grpc_cli call localhost:50051 CreateAuthor "name: \"$(name)\""
+
 .PHONY=proto
 proto: otus_graphql/books_pb2_grpc.py otus_graphql/books_pb2.py front/otus_graphql/books_grpc_web_pb.js front/otus_graphql/books_pb.js
 

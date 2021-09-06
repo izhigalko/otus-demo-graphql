@@ -4,6 +4,7 @@ import "google/protobuf/timestamp.proto";
 
 service BooksService {
   rpc GetBooks(Empty) returns (stream Book);
+  rpc CreateAuthor(AuthorRequest) returns (Author);
 }
 
 message Empty {
@@ -12,6 +13,11 @@ message Empty {
 message Author {
   string name = 1;
   google.protobuf.Timestamp birthday = 2;
+  int64 id = 3;
+}
+
+message AuthorRequest {
+  string name = 1;
 }
 
 message Book {

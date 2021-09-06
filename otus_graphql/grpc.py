@@ -21,10 +21,15 @@ class BooksService(BooksServiceServicer):
     def to_protobuf_author(author: models.Author) -> Author:
         birthday = Timestamp()
         birthday.FromDatetime(datetime.combine(author.birthday, datetime.min.time()))
-        return Author(name=author.name, birthday=birthday)
+        return Author(name=author.name, birthday=birthday, id=author.pk)
 
     def GetBooks(self, request, context):
         books = models.Book.objects.select_related('author').all()
         for book in books:
             author = self.to_protobuf_author(book.author)
             yield Book(title=book.title, description=book.description, author=author)
+
+    # def CreateAuthor(self, request, context):
+    #     author = models.Author(name=request.name, birthday=datetime.today())
+    #     author.save()
+    #     return self.to_protobuf_author(author)
