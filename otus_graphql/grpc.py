@@ -29,7 +29,7 @@ class BooksService(BooksServiceServicer):
             author = self.to_protobuf_author(book.author)
             yield Book(title=book.title, description=book.description, author=author)
 
-    # def CreateAuthor(self, request, context):
-    #     author = models.Author(name=request.name, birthday=datetime.today())
-    #     author.save()
-    #     return self.to_protobuf_author(author)
+    def CreateAuthor(self, request, context):
+        author = models.Author(name=request.name, birthday=datetime.today())
+        author.save()
+        return self.to_protobuf_author(author)
